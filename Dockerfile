@@ -117,12 +117,12 @@ RUN apt-get update && ( \
   BUILD_ARCH="$(arch)" ; \
   if [ "$BUILD_ARCH" = "armv7l" ] ; then \
     echo "=================" ; \
-    apt list -a opencv-contrib-python ; \
+    apt list -a python3-opencv ; \
     echo "=================" ; \
     apt install -y --no-install-recommends \
       libhdf5-dev libhdf5-serial-dev python3-pyqt5 libatlas-base-dev \
       cmake build-essential libssl-dev \
-      opencv-contrib-python==4.5.3.56 ; \
+      python3-opencv==4.5.3.56 ; \
   else \
     apt install -y --no-install-recommends python3-opencv ; \
   fi ; \
