@@ -113,10 +113,15 @@ RUN echo '%sudo ALL=(ALL:ALL) NOPASSWD:ALL' >/etc/sudoers.d/nopasswd \
 WORKDIR /app
 
 # for armv7l install additional packages for build python modules (no binary distribution for some python packages).
-RUN apt-get update && apt install -y --no-install-recommends python3-opencv && ( \
+RUN apt-get update && ( \
   BUILD_ARCH="$(arch)" ; \
   if [ "$BUILD_ARCH" = "armv7l" ] ; then \
-    apt install -y --no-install-recommends cmake build-essential libssl-dev ; \
+    apt install -y --no-install-recommends \
+      libhdf5-dev libhdf5-serial-dev python3-pyqt5 libatlas-base-dev libjasper-dev \
+      cmake build-essential libssl-dev \
+      opencv-contrib-python==4.5.3.56 ; \
+  else \
+    apt install -y --no-install-recommends python3-opencv ; \
   fi ; \
   )
 
