@@ -124,7 +124,7 @@ RUN apt-get update && ( \
       cmake build-essential libssl-dev \
       python3-opencv ; \
   else \
-    apt install -y --no-install-recommends python3-opencv ; \
+    apt install -y --no-install-recommends python3-opencv python3-numpy ; \
   fi ; \
   ) && echo ">>>>>>>>>>>>" && dpkg -L python3-opencv && echo "<<<<<<<<<<<<<<<<<<"
 
