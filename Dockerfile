@@ -122,11 +122,11 @@ RUN apt-get update && ( \
     apt install -y --no-install-recommends \
       libhdf5-dev libhdf5-serial-dev python3-pyqt5 libatlas-base-dev \
       cmake build-essential libssl-dev \
-      python3-opencv==4.5.3.56 ; \
+      python3-opencv ; \
   else \
     apt install -y --no-install-recommends python3-opencv ; \
   fi ; \
-  )
+  ) && echo ">>>>>>>>>>>>" && dpkg -L python3-opencv && echo "<<<<<<<<<<<<<<<<<<"
 
 RUN echo "Install python package for arch: $(arch)"
 
