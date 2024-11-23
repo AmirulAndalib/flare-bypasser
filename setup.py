@@ -1,13 +1,17 @@
+import importlib
 import distutils.core
 
 
 def is_installed(pkgname):
   try:
-    import cv2 # noqa
-    return True
+    if importlib.import_module(pkgname):
+      return True
   except Exception:
-    return False
+    pass
+  return False
 
+print("flare-bypasser installer: cv2 is installed: " + str(is_installed('cv2')), flush = True)
+print("flare-bypasser installer: numpy is installed: " + str(is_installed('numpy')), flush = True)
 
 install_requires = [
   'asyncio',
